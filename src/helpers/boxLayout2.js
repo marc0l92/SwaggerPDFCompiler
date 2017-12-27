@@ -13,16 +13,16 @@ module.exports = function (text) {
       return '#666';
     },
     paddingLeft: function (rowIndex, node) {
-      return 4;
+      return 5;
     },
     paddingRight: function (rowIndex, node) {
-      return 4;
+      return 5;
     },
     paddingTop: function (rowIndex, node) {
       return 2;
     },
     paddingBottom: function (rowIndex, node) {
-      return 2;
+      return 5;
     },
     fillColor: function (rowIndex, node, colIndex) {
       return null;
