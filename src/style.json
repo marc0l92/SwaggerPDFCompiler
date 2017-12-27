@@ -1,0 +1,86 @@
+{
+  "default": {
+    "fontSize": 9,
+    "color": "black",
+    "font": "Roboto"
+  },
+  "h1": {
+    "fontSize": 22,
+    "alignment": "left",
+    "margin": [0, 10, 0, 5]
+  },
+  "h2": {
+    "fontSize": 18,
+    "alignment": "left",
+    "margin": [0, 10, 0, 5]
+  },
+  "h3": {
+    "fontSize": 15,
+    "alignment": "left",
+    "margin": [0, 8, 0, 5]
+  },
+  "h3-get": {
+    "fontSize": 15,
+    "font": "Negative",
+    "color": "#61AFFE"
+  },
+  "h3-post": {
+    "fontSize": 15,
+    "font": "Negative",
+    "color": "#49CC90"
+  },
+  "h3-put": {
+    "fontSize": 15,
+    "font": "Negative",
+    "color": "#FCA130"
+  },
+  "h3-patch": {
+    "fontSize": 15,
+    "font": "Negative",
+    "color": "#50E3C2"
+  },
+  "h3-delete": {
+    "fontSize": 15,
+    "font": "Negative",
+    "color": "#F93E3E"
+  },
+  "h3-head": {
+    "fontSize": 15,
+    "font": "Negative",
+    "color": "#9012FE"
+  },
+  "h4": {
+    "fontSize": 12,
+    "alignment": "left",
+    "fontFeatures": ["smcp"],
+    "margin": [0, 5, 0, 5]
+  },
+  "p": {
+    "alignment": "justify",
+    "color": "#3F3F3F",
+    "margin": [0, 0, 0, 5]
+  },
+  "br": {
+    "margin": [0, 0, 0, 10]
+  },
+  "strong": {
+    "bold": true
+  },
+  "a": {
+    "color": "blue",
+    "decoration": "underline"
+  },
+  "code": {
+    "preserveLeadingSpaces": true,
+    "margin": [0, 0, 0, 5]
+  },
+  "table": {},
+  "tableHeader": {
+    "bold": true,
+    "color": "white"
+  },
+  "dataType": {
+    "color": "#1F3864",
+    "fontSize": 8
+  }
+}
