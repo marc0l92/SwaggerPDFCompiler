@@ -21,32 +21,32 @@
   },
   "h3-get": {
     "fontSize": 15,
-    "font": "Negative",
+    "font": "Fat",
     "color": "#61AFFE"
   },
   "h3-post": {
     "fontSize": 15,
-    "font": "Negative",
+    "font": "Fat",
     "color": "#49CC90"
   },
   "h3-put": {
     "fontSize": 15,
-    "font": "Negative",
+    "font": "Fat",
     "color": "#FCA130"
   },
   "h3-patch": {
     "fontSize": 15,
-    "font": "Negative",
+    "font": "Fat",
     "color": "#50E3C2"
   },
   "h3-delete": {
     "fontSize": 15,
-    "font": "Negative",
+    "font": "Fat",
     "color": "#F93E3E"
   },
   "h3-head": {
     "fontSize": 15,
-    "font": "Negative",
+    "font": "Fat",
     "color": "#9012FE"
   },
   "h4": {
