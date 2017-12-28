@@ -60,6 +60,9 @@
     "color": "#3F3F3F",
     "margin": [0, 0, 0, 5]
   },
+  "span": {
+    "color": "#3F3F3F"
+  },
   "br": {
     "margin": [0, 0, 0, 10]
   },
