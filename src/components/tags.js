@@ -1,6 +1,6 @@
 const tableLayout = require('../helpers/tableLayout.js');
 
-module.exports = function(content, apiDefinition) {
+module.exports = function (content, apiDefinition) {
   if (apiDefinition.hasOwnProperty('tags') && Array.isArray(apiDefinition.tags)) {
     content.push({
       text: 'Summary',
@@ -11,9 +11,11 @@ module.exports = function(content, apiDefinition) {
     let pathsSummary = {};
     for (let path in apiDefinition.paths) {
       for (let method in apiDefinition.paths[path]) {
+        let operationId = apiDefinition.paths[path][method].operationId;
         for (let i in apiDefinition.paths[path][method].tags) {
           let tag = apiDefinition.paths[path][method].tags[i];
           if (!pathsSummary.hasOwnProperty(tag)) {
+            // Table first line
             pathsSummary[tag] = [
               [{
                 text: 'Operation',
@@ -24,8 +26,11 @@ module.exports = function(content, apiDefinition) {
               }]
             ];
           }
-          pathsSummary[tag].push([
-            method.toUpperCase() + ' ' + path,
+
+          pathsSummary[tag].push([{
+              text: method.toUpperCase() + ' ' + path,
+              anchor: operationId
+            },
             apiDefinition.paths[path][method].summary
           ]);
         }

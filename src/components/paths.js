@@ -20,6 +20,7 @@ module.exports = function (content, apiDefinition) {
           text: ' ' + path,
           style: 'h3'
         }],
+        id: api.operationId,
         style: 'h3'
       });
       // Description
