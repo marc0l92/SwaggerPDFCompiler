@@ -69,8 +69,11 @@ require('./components/definitions.js')(content, apiDefinition);
 // Finalize PDF file
 var printer = new PdfPrinter(fontDescriptors);
 var docDefinition = {
+  pageSize: 'A4',
+  //pageOrientation: 'landscape',
+  //pageMargins: [20, 30, 20, 30],
   "info": info,
-  //  "header": header,
+  //"header": header,
   "footer": footer,
   "content": content,
   "styles": style,
