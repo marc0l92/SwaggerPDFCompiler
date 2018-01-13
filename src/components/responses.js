@@ -1,17 +1,31 @@
-const responseCodeText = require('./responseCode.json');
+const responseCodeText = require('../helpers/responseCode.json');
 const boxLayout1 = require('../helpers/boxLayout1.js');
 const boxLayout2 = require('../helpers/boxLayout2.js');
 const jsonStringify = require('json-stable-stringify');
 const schema = require('./schema.js');
-const reference = require('../helpers/reference.js');
 
-module.exports = function(content, apiDefinition, responses) {
+module.exports = function (content, apiDefinition, api) {
   content.push({
     text: 'Response',
     style: 'h4'
   });
-  for (let responseCode in responses) {
-    let response = responses[responseCode];
+
+  // Response content type
+  if (api.hasOwnProperty('produces')) {
+    content.push({
+      text: [{
+        text: 'Response content-types: ',
+        style: 'strong'
+      }, {
+        text: api.produces.join(', '),
+        style: 'span'
+      }],
+      style: 'p'
+    });
+  }
+
+  for (let responseCode in api.responses) {
+    let response = api.responses[responseCode];
     content.push({
       text: responseCode + ' ' + responseCodeText[responseCode],
       style: 'strong'

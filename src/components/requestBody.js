@@ -3,7 +3,7 @@ const boxLayout2 = require('../helpers/boxLayout2.js');
 const jsonStringify = require('json-stable-stringify');
 const schema = require('./schema.js');
 
-module.exports = function(content, apiDefinition, body) {
+module.exports = function (content, apiDefinition, api, body) {
   // Request body
   if (body) {
     content.push({
@@ -14,6 +14,20 @@ module.exports = function(content, apiDefinition, body) {
       text: body.description,
       style: 'p'
     });
+
+    // Consumes content type
+    if (api.hasOwnProperty('consumes')) {
+      content.push({
+        text: [{
+          text: 'Request content-types: ',
+          style: 'strong'
+        }, {
+          text: api.consumes.join(', '),
+          style: 'span'
+        }],
+        style: 'p'
+      });
+    }
 
     let bodyDefinitionColumns = [];
 

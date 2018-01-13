@@ -23,7 +23,7 @@ You can see compilation examples in the test folder.
 - [x] descriptions as markdown
 
 ### Properties to support
-- [ ] object.required
+- [x] object.required
 - [ ] object.maxProperties
 - [ ] object.minProperties
 - [ ] object.maxItems
@@ -36,8 +36,8 @@ You can see compilation examples in the test folder.
 
 - [ ] .paths.{path}.[options, head, parameters]
 - [ ] .paths.{path}.{method}.externalDocs
-- [ ] .paths.{path}.{method}.consumes
-- [ ] .paths.{path}.{method}.produces
+- [x] .paths.{path}.{method}.consumes
+- [x] .paths.{path}.{method}.produces
 - [ ] .paths.{path}.{method}.schemes
 - [ ] .paths.{path}.{method}.deprecated
 - [ ] .paths.{path}.{method}.security

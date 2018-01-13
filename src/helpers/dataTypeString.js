@@ -2,11 +2,15 @@ module.exports = function (element) {
   let typeString = "";
   // Data type
   if (element.type === 'array') {
-    typeString += element.items.type + '[]';
+    typeString += (element.items.type) ? element.items.type : '';
+    typeString += '[]';
   } else {
     typeString += element.type;
   }
   // Extra
+  if (element.hasOwnProperty('required') && element.required) {
+    typeString += ' [Required]';
+  }
   if (element.hasOwnProperty('default')) {
     typeString += ' (default:"' + element.default+'")';
   }

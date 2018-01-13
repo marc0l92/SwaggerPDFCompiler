@@ -31,7 +31,7 @@ module.exports = function (content, apiDefinition) {
       }]
     });
 
-    // Contact
+    // Contact author
     if (apiDefinition.info.hasOwnProperty('contact') && (apiDefinition.info.contact.name || apiDefinition.info.contact.email)) {
       let author = {
         text: [{
@@ -43,14 +43,41 @@ module.exports = function (content, apiDefinition) {
         author.text.push({
           text: apiDefinition.info.contact.name,
           link: 'mailto:' + apiDefinition.info.contact.email,
-          style: 'a'
+          style: 'link'
         });
       } else {
         author.text.push({
-          text: apiDefinition.info.contact.name || apiDefinition.info.contact.email
+          text: apiDefinition.info.contact.name || apiDefinition.info.contact.email,
+          style: 'span'
         });
       }
       content.push(author);
+    }
+    // Terms Of Service
+    if (apiDefinition.info.hasOwnProperty('termsOfService')) {
+      content.push({
+        text: [{
+          text: 'Terms Of Service: ',
+          style: 'strong'
+        }, {
+          text: apiDefinition.info.termsOfService,
+          link: apiDefinition.info.termsOfService,
+          style: 'link'
+        }]
+      });
+    }
+    // License
+    if (apiDefinition.info.hasOwnProperty('license') && (apiDefinition.info.license.name || apiDefinition.info.license.url)) {
+      content.push({
+        text: [{
+          text: 'License: ',
+          style: 'strong'
+        }, {
+          text: (apiDefinition.info.license.hasOwnProperty('name')) ? apiDefinition.info.license.name : apiDefinition.info.license.url,
+          link: apiDefinition.info.license.url,
+          style: (apiDefinition.info.license.hasOwnProperty('url')) ? 'link' : 'span'
+        }]
+      });
     }
 
     content.push({

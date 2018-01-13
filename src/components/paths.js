@@ -24,25 +24,37 @@ module.exports = function (content, apiDefinition) {
         id: api.operationId,
         style: 'h3'
       });
+      // Tags
+      let tags = [{
+        text: 'Tags: ',
+        style: 'strong'
+      }];
+      for (let index in api.tags) {
+        tags.push({
+          text: api.tags[index],
+          style: 'span'
+        });
+      }
+      content.push({
+        text: tags,
+        style: 'p'
+      });
       // Description
       if (api.description) {
         // Descrition to markdown
-        let line = [];
-        markdown(line, api.description);
-        content.push({
-          text: line,
-          style: 'p'
-        });
+        markdown(content, api.description);
       } else if (api.summary) {
         content.push({
           text: api.summary,
           style: 'p'
         });
       }
+
       // Request
-      request(content, apiDefinition, api.parameters);
+      request(content, apiDefinition, api);
+
       // Reponse
-      responses(content, apiDefinition, api.responses);
+      responses(content, apiDefinition, api);
     }
   }
 };
