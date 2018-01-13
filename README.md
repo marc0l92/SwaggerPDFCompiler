@@ -13,6 +13,9 @@ npm install
 node .\src\compileToPDF.js yourSwaggerFile.yaml
 ```
 
+## Examples
+You can see compilation examples in the test folder.
+
 ## TODO
 [x] link ref to models
 [ ] check if crash when there are missing elements
