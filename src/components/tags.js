@@ -41,13 +41,27 @@ module.exports = function (content, apiDefinition) {
       let tag = apiDefinition.tags[index];
       // Section Header
       content.push({
-        text: tag.name,
+        text: tag.name.charAt(0).toUpperCase() + tag.name.slice(1),
         style: 'h3'
       });
       content.push({
         text: tag.description,
         style: 'p'
       });
+      // External docs
+      if (tag.hasOwnProperty('externalDocs')) {
+        content.push({
+          text: [{
+            text: tag.externalDocs.description + ': ',
+            style: 'span'
+          }, {
+            text: tag.externalDocs.url,
+            link: tag.externalDocs.url,
+            style: 'link'
+          }],
+          style: 'p'
+        });
+      }
       // Section API
       if (pathsSummary.hasOwnProperty(tag.name)) {
         content.push({

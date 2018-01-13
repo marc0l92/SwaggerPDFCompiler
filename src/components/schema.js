@@ -54,7 +54,11 @@ function parseSchema(content, apiDefinition, schema, margin) {
       parseSchema(content, apiDefinition, schema.items, margin + INDENTATION);
       break;
     default:
-      if (schema.description) {
+      // Try to guess the type
+      if (schema.hasOwnProperty('properties')) {
+        schema.type = 'object';
+        parseSchema(content, apiDefinition, schema, margin);
+      } else if (schema.description) {
         content.push({
           text: schema.description,
           style: "p",

@@ -3,7 +3,7 @@ const reference = require('../helpers/reference.js');
 const requestBody = require('./requestBody.js');
 const dataTypeString = require('../helpers/dataTypeString.js');
 
-module.exports = function (content, apiDefinition, parameters) {
+module.exports = function (content, apiDefinition, api) {
   let body;
   let requestTable = [
     [{
@@ -21,8 +21,8 @@ module.exports = function (content, apiDefinition, parameters) {
     }]
   ];
 
-  for (let i in parameters) {
-    let parameter = parameters[i];
+  for (let i in api.parameters) {
+    let parameter = api.parameters[i];
     parameter = reference(apiDefinition, parameter);
     if (parameter.in !== 'body') {
       requestTable.push([parameter.name, parameter.description || '', parameter.in, dataTypeString(parameter)]);
@@ -39,7 +39,7 @@ module.exports = function (content, apiDefinition, parameters) {
     });
     content.push({
       table: {
-        widths: ["auto", "*", "auto", "*"],
+        widths: ["auto", "*", "auto", "auto"],
         headerRows: 1,
         keepWithHeaderRows: 1,
         body: requestTable
@@ -50,5 +50,5 @@ module.exports = function (content, apiDefinition, parameters) {
   }
 
   // Request body
-  requestBody(content, apiDefinition, body);
+  requestBody(content, apiDefinition, api, body);
 };

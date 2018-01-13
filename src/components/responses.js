@@ -1,17 +1,33 @@
-const responseCodeText = require('./responseCode.json');
+const responseCodeText = require('../helpers/responseCode.json');
 const boxLayout1 = require('../helpers/boxLayout1.js');
 const boxLayout2 = require('../helpers/boxLayout2.js');
 const jsonStringify = require('json-stable-stringify');
+const tableLayout = require('../helpers/tableLayout.js');
+const dataTypeString = require('../helpers/dataTypeString.js');
 const schema = require('./schema.js');
-const reference = require('../helpers/reference.js');
 
-module.exports = function(content, apiDefinition, responses) {
+module.exports = function (content, apiDefinition, api) {
   content.push({
     text: 'Response',
     style: 'h4'
   });
-  for (let responseCode in responses) {
-    let response = responses[responseCode];
+
+  // Response content type
+  if (api.hasOwnProperty('produces')) {
+    content.push({
+      text: [{
+        text: 'Response content-types: ',
+        style: 'strong'
+      }, {
+        text: api.produces.join(', '),
+        style: 'span'
+      }],
+      style: 'p'
+    });
+  }
+
+  for (let responseCode in api.responses) {
+    let response = api.responses[responseCode];
     content.push({
       text: responseCode + ' ' + responseCodeText[responseCode],
       style: 'strong'
@@ -21,6 +37,7 @@ module.exports = function(content, apiDefinition, responses) {
       style: 'p'
     });
 
+    // Schema
     if (response.hasOwnProperty('schema')) {
       if (response.schema.hasOwnProperty('$ref')) {
         content.push({
@@ -71,6 +88,44 @@ module.exports = function(content, apiDefinition, responses) {
         content.push({
           columns: bodyDefinitionColumns,
           margin: [5, 0, 5, 10]
+        });
+      }
+    }
+
+    // Headers
+    if (response.hasOwnProperty('headers')) {
+      let headersTable = [
+        [{
+          text: 'Header',
+          style: 'tableHeader'
+        }, {
+          text: 'Description',
+          style: 'tableHeader'
+        }, {
+          text: 'Data Type',
+          style: 'tableHeader'
+        }]
+      ];
+
+      for (let headerName in response.headers) {
+        let header = response.headers[headerName];
+        headersTable.push([headerName, header.description || '', dataTypeString(header)]);
+      }
+
+      if (headersTable.length > 1) {
+        content.push({
+          table: {
+            widths: ["auto", "*", "auto"],
+            headerRows: 1,
+            keepWithHeaderRows: 1,
+            body: headersTable
+          },
+          style: 'table',
+          layout: tableLayout
+        });
+        content.push({
+          text: '',
+          style: 'br'
         });
       }
     }
