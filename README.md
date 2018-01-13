@@ -3,8 +3,8 @@ Convert your OpenAPI2.0/Swagger2.0 definitions to PDF documents.
 
 ## Usage
 ```
-# Clone or download the Git repository
-git clone https://github.com/marc0l92/SwaggerPDFCompiler.git
+# Download the tool 
+npm install swagger-pdf-compiler
 
 # Install the dependencies
 npm install
