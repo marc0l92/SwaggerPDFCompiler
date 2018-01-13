@@ -39,7 +39,7 @@ module.exports = function (content, apiDefinition, api) {
     });
     content.push({
       table: {
-        widths: ["auto", "*", "auto", "*"],
+        widths: ["auto", "*", "auto", "auto"],
         headerRows: 1,
         keepWithHeaderRows: 1,
         body: requestTable

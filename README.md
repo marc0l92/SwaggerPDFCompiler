@@ -17,10 +17,10 @@ node .\src\compileToPDF.js yourSwaggerFile.yaml
 You can see compilation examples in the test folder.
 
 ## TODO
+- [x] descriptions as markdown
 - [x] link ref to models
 - [ ] check if crash when there are missing elements
 - [ ] custom properties 'x-'
-- [x] descriptions as markdown
 
 ### Properties to support
 - [x] object.required
@@ -34,10 +34,10 @@ You can see compilation examples in the test folder.
 - [ ] .externalDocs
 - [ ] .info.contact.url
 
-- [ ] .paths.{path}.[options, head, parameters]
-- [ ] .paths.{path}.{method}.externalDocs
 - [x] .paths.{path}.{method}.consumes
 - [x] .paths.{path}.{method}.produces
+- [ ] .paths.{path}.[options, head, parameters]
+- [ ] .paths.{path}.{method}.externalDocs
 - [ ] .paths.{path}.{method}.schemes
 - [ ] .paths.{path}.{method}.deprecated
 - [ ] .paths.{path}.{method}.security
