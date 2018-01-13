@@ -1,5 +1,6 @@
 const request = require('./request.js');
 const responses = require('./responses.js');
+const markdown = require('../helpers/markdown.js');
 
 module.exports = function (content, apiDefinition) {
   content.push({
@@ -20,13 +21,24 @@ module.exports = function (content, apiDefinition) {
           text: ' ' + path,
           style: 'h3'
         }],
+        id: api.operationId,
         style: 'h3'
       });
       // Description
-      content.push({
-        text: api.description,
-        style: 'p'
-      });
+      if (api.description) {
+        // Descrition to markdown
+        let line = [];
+        markdown(line, api.description);
+        content.push({
+          text: line,
+          style: 'p'
+        });
+      } else if (api.summary) {
+        content.push({
+          text: api.summary,
+          style: 'p'
+        });
+      }
       // Request
       request(content, apiDefinition, api.parameters);
       // Reponse

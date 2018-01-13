@@ -1,4 +1,6 @@
-module.exports = function(content, apiDefinition) {
+const markdown = require('../helpers/markdown.js');
+
+module.exports = function (content, apiDefinition) {
   if (apiDefinition.hasOwnProperty('info')) {
     // Title
     content.push({
@@ -11,13 +13,22 @@ module.exports = function(content, apiDefinition) {
       text: [{
         text: 'Host: ',
         style: 'strong'
-      }, apiDefinition.host, {
-        text: ', Base URL: ',
+      }, {
+        text: apiDefinition.host + ', ',
+        style: 'span'
+      }, {
+        text: 'Base URL: ',
         style: 'strong'
-      }, apiDefinition.basePath, {
-        text: ', Version: ',
+      }, {
+        text: apiDefinition.basePath + ', ',
+        style: 'span'
+      }, {
+        text: 'Version: ',
         style: 'strong'
-      }, apiDefinition.info.version]
+      }, {
+        text: apiDefinition.info.version,
+        style: 'span'
+      }]
     });
 
     // Contact
@@ -46,8 +57,11 @@ module.exports = function(content, apiDefinition) {
       text: '',
       style: 'br'
     });
+    // Descrition to markdown
+    let line = [];
+    markdown(line, apiDefinition.info.description);
     content.push({
-      text: apiDefinition.info.description,
+      text: line,
       style: 'p'
     });
   } else {
@@ -63,7 +77,10 @@ module.exports = function(content, apiDefinition) {
       text: [{
         text: 'Schemes: ',
         style: 'strong'
-      }, apiDefinition.schemes.join(', ')]
+      }, {
+        text: apiDefinition.schemes.join(', '),
+        style: 'span'
+      }]
     });
   }
   if (apiDefinition.hasOwnProperty('consumes')) {
@@ -71,7 +88,10 @@ module.exports = function(content, apiDefinition) {
       text: [{
         text: 'Default request content-types: ',
         style: 'strong'
-      }, apiDefinition.consumes.join(', ')]
+      }, {
+        text: apiDefinition.consumes.join(', '),
+        style: 'span'
+      }]
     });
   }
   if (apiDefinition.hasOwnProperty('produces')) {
@@ -79,7 +99,10 @@ module.exports = function(content, apiDefinition) {
       text: [{
         text: 'Default response content-types: ',
         style: 'strong'
-      }, apiDefinition.produces.join(', ')]
+      }, {
+        text: apiDefinition.produces.join(', '),
+        style: 'span'
+      }]
     });
   }
 };

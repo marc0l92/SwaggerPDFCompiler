@@ -3,12 +3,7 @@ const reference = require('../helpers/reference.js');
 const requestBody = require('./requestBody.js');
 const dataTypeString = require('../helpers/dataTypeString.js');
 
-module.exports = function(content, apiDefinition, parameters) {
-  // Request parameters
-  content.push({
-    text: 'Request parameters',
-    style: 'h4'
-  });
+module.exports = function (content, apiDefinition, parameters) {
   let body;
   let requestTable = [
     [{
@@ -36,16 +31,24 @@ module.exports = function(content, apiDefinition, parameters) {
     }
   }
 
-  content.push({
-    table: {
-      widths: ["auto", "*", "auto", "*"],
-      headerRows: 1,
-      keepWithHeaderRows: 1,
-      body: requestTable
-    },
-    style: 'table',
-    layout: tableLayout
-  });
+  // Request parameters
+  if (requestTable.length > 1) {
+    content.push({
+      text: 'Request parameters',
+      style: 'h4'
+    });
+    content.push({
+      table: {
+        widths: ["auto", "*", "auto", "*"],
+        headerRows: 1,
+        keepWithHeaderRows: 1,
+        body: requestTable
+      },
+      style: 'table',
+      layout: tableLayout
+    });
+  }
+
   // Request body
   requestBody(content, apiDefinition, body);
 };

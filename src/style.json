@@ -21,32 +21,32 @@
   },
   "h3-get": {
     "fontSize": 15,
-    "font": "Negative",
+    "font": "Fat",
     "color": "#61AFFE"
   },
   "h3-post": {
     "fontSize": 15,
-    "font": "Negative",
+    "font": "Fat",
     "color": "#49CC90"
   },
   "h3-put": {
     "fontSize": 15,
-    "font": "Negative",
+    "font": "Fat",
     "color": "#FCA130"
   },
   "h3-patch": {
     "fontSize": 15,
-    "font": "Negative",
+    "font": "Fat",
     "color": "#50E3C2"
   },
   "h3-delete": {
     "fontSize": 15,
-    "font": "Negative",
+    "font": "Fat",
     "color": "#F93E3E"
   },
   "h3-head": {
     "fontSize": 15,
-    "font": "Negative",
+    "font": "Fat",
     "color": "#9012FE"
   },
   "h4": {
@@ -60,13 +60,23 @@
     "color": "#3F3F3F",
     "margin": [0, 0, 0, 5]
   },
+  "span": {
+    "color": "#3F3F3F"
+  },
   "br": {
     "margin": [0, 0, 0, 10]
   },
   "strong": {
     "bold": true
   },
+  "em": {
+    "italics": true
+  },
   "a": {
+    "color": "blue",
+    "decoration": "underline"
+  },
+  "link": {
     "color": "blue",
     "decoration": "underline"
   },

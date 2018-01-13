@@ -13,13 +13,13 @@ module.exports = function(text) {
       return '#ccc';
     },
     paddingLeft: function(rowIndex, node) {
-      return 4;
+      return 5;
     },
     paddingRight: function(rowIndex, node) {
-      return 4;
+      return 5;
     },
     paddingTop: function(rowIndex, node) {
-      return 2;
+      return 5;
     },
     paddingBottom: function(rowIndex, node) {
       return 2;

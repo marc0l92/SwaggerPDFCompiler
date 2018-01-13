@@ -30,8 +30,8 @@ var fontDescriptors = {
     italics: 'fonts/Helvetica/HLI.ttf',
     bolditalics: 'fonts/Helvetica/HelveticaMedCdObl.ttf'
   },
-  Negative: {
-    normal: 'fonts/Negative/olivers-barney.ttf',
+  Fat: {
+    normal: 'fonts/Special/olivers-barney.ttf',
   }
 };
 
@@ -51,6 +51,13 @@ var header = {
     width: 15
   }]
 };
+var footer = function (currentPage, pageCount) {
+  return {
+    text: currentPage.toString() + '/' + pageCount,
+    alignment: 'right',
+    margin: [0, 0, 30, 0]
+  };
+};
 var content = [];
 
 // Introduciton
@@ -62,8 +69,12 @@ require('./components/definitions.js')(content, apiDefinition);
 // Finalize PDF file
 var printer = new PdfPrinter(fontDescriptors);
 var docDefinition = {
+  pageSize: 'A4',
+  //pageOrientation: 'landscape',
+  //pageMargins: [20, 30, 20, 30],
   "info": info,
-//  "header": header,
+  //"header": header,
+  "footer": footer,
   "content": content,
   "styles": style,
   "defaultStyle": style.default
