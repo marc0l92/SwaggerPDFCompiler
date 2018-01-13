@@ -69,7 +69,14 @@
   "strong": {
     "bold": true
   },
+  "em": {
+    "italics": true
+  },
   "a": {
+    "color": "blue",
+    "decoration": "underline"
+  },
+  "link": {
     "color": "blue",
     "decoration": "underline"
   },

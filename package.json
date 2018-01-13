@@ -4,7 +4,7 @@
   "description": "Convert your OpenAPI2.0/Swagger2.0 definitions to PDF documents",
   "main": ".\\src\\compileToPDF.js",
   "scripts": {
-    "test": "compileToPDF.bat"
+    "test": "node ./src/compileToPDF.js ./test/Petstore.yaml"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
   "homepage": "https://github.com/marc0l92/SwaggerPDFCompiler#readme",
   "dependencies": {
     "json-stable-stringify": "^1.0.1",
+    "markdown-it": "^8.4.0",
     "pdfmake": "^0.1.35",
     "yamljs": "^0.3.0"
   }

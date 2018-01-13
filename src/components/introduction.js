@@ -1,3 +1,5 @@
+const markdown = require('../helpers/markdown.js');
+
 module.exports = function (content, apiDefinition) {
   if (apiDefinition.hasOwnProperty('info')) {
     // Title
@@ -55,8 +57,11 @@ module.exports = function (content, apiDefinition) {
       text: '',
       style: 'br'
     });
+    // Descrition to markdown
+    let line = [];
+    markdown(line, apiDefinition.info.description);
     content.push({
-      text: apiDefinition.info.description,
+      text: line,
       style: 'p'
     });
   } else {
