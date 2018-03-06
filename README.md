@@ -14,30 +14,27 @@ node .\src\compileToPDF.js yourSwaggerFile.yaml
 ```
 
 ## Examples
-You can see compilation examples in the test folder.
+You can see some compilation examples in the test folder.
 
 ## TODO
 - [x] descriptions as markdown
 - [x] link ref to models
-- [ ] check if crash when there are missing elements
-- [ ] custom properties 'x-'
+- [ ] check if there are crash when there are missing elements in the definition
+- [ ] allow custom properties 'x-'
 
 ### Properties to support
-- [x] object.required
+- [ ] .externalDocs
+- [ ] .info.contact.url
+
+- [ ] .paths.{path}.[options, head, parameters]
+- [ ] .paths.{path}.{method}.externalDocs
+- [ ] .paths.{path}.{method}.schemes
+- [ ] .paths.{path}.{method}.deprecated
+- [ ] .paths.{path}.{method}.security
+
 - [ ] object.maxProperties
 - [ ] object.minProperties
 - [ ] object.maxItems
 - [ ] object.minItems
 - [ ] object.uniqueItems
 - [ ] object.additionalProperties
-
-- [ ] .externalDocs
-- [ ] .info.contact.url
-
-- [x] .paths.{path}.{method}.consumes
-- [x] .paths.{path}.{method}.produces
-- [ ] .paths.{path}.[options, head, parameters]
-- [ ] .paths.{path}.{method}.externalDocs
-- [ ] .paths.{path}.{method}.schemes
-- [ ] .paths.{path}.{method}.deprecated
-- [ ] .paths.{path}.{method}.security

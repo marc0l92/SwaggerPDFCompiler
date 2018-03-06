@@ -66,6 +66,9 @@ require('./components/tags.js')(content, apiDefinition);
 require('./components/paths.js')(content, apiDefinition);
 require('./components/definitions.js')(content, apiDefinition);
 
+// Remove unvalid content blocks
+require('./helpers/documentFinalize.js')(content);
+
 // Finalize PDF file
 var printer = new PdfPrinter(fontDescriptors);
 var docDefinition = {

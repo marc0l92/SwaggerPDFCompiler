@@ -1,6 +1,6 @@
 {
   "name": "swagger-pdf-compiler",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Convert your OpenAPI2.0/Swagger2.0 definitions to PDF documents",
   "main": ".\\src\\compileToPDF.js",
   "scripts": {
@@ -14,10 +14,12 @@
     "Swagger",
     "OpenAPI",
     "PDF",
-    "Compiler"
+    "Compiler",
+    "Documents",
+    "RESTful API"
   ],
   "author": "Marco Lucarella",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/marc0l92/SwaggerPDFCompiler/issues"
   },
